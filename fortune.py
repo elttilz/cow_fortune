@@ -5,7 +5,7 @@ from bridge.event import Handler, Event, EventContext
 from bridge.reply import TextReply
 from plugins import Plugin
 from datetime import datetime
-@register(
+@plugins.register(
     name="Fortune",
     desire_priority=-1,
     hidden=True,
