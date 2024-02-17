@@ -1,10 +1,18 @@
+
+# encoding:utf-8
 import requests
 import plugins
 import json
-from bridge.event import Handler, Event, EventContext
-from bridge.reply import TextReply
-from plugins import Plugin
+from bridge.event import Handler, ContextType, Event, EventContext
+from bridge.reply import TextReply,Reply, ReplyType
+from plugins import *
 from datetime import datetime
+from channel.chat_message import ChatMessage
+from common.log import logger
+from plugins import *
+from config import conf
+
+
 @plugins.register(
     name="Fortune",
     desire_priority=-1,
@@ -13,6 +21,7 @@ from datetime import datetime
     version="0.1",
     author="dajoe",
 )
+
 class Fortune(Plugin):
     def init(self):
         super().init()
