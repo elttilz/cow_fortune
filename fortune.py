@@ -14,7 +14,7 @@ from config import conf
 
 
 @plugins.register(
-    name="Fortune",
+    name="Today Fortune",
     desire_priority=-1,
     hidden=True,
     desc="A plugin for today's fortune",
@@ -23,9 +23,10 @@ from config import conf
 )
 
 class Fortune(Plugin):
-    def init(self):
-        super().init()
+    def __init__(self):
+        super().__init__()
         self.handlers[Event.ON_HANDLE_CONTEXT] = self.on_handle_context
+        logger.info("[Today Fortune] inited")
     def on_handle_context(self, e_context: EventContext):
         content = e_context["context"].content.strip()
         if '今日财运' in content:
